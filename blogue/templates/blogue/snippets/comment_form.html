@@ -1,0 +1,9 @@
+<form method='post'>
+	{% csrf_token %}
+	<input type="hidden" name="form.post"> </input>
+	
+	{{CommentForm.comment}}
+
+	<input type="submit" name="submit">
+
+</form>

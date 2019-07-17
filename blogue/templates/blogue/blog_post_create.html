@@ -1,0 +1,27 @@
+{% extends 'blogue/navbar.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<head>
+	<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=your_API_key"></script>
+	<script src="{% static 'blogue/static/js/tinymce/tinymce.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'blogue/static/js/tinymce/custom.js' %}"></script>
+
+	<link rel="stylesheet"  type="text/css" href="{% static 'blogue/base.css' %}">
+</head>
+
+{%block content%}
+
+<div class="col-lg-8 offset-lg-2 col-md-12">
+
+    <form method='post'>
+    	{% csrf_token %}
+
+            {{form.title|as_crispy_field}}
+            {{form.body|as_crispy_field}}
+
+        	<input type="submit" name="submit" class="btn blog-options-button float-right">
+
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'blogue/navbar.html' %}
+
+{% block content %}
+	
+	{% if produto %}
+		{{produto.referencia}} <br>
+		
+		<hr>
+
+		<img style="height:25%; width:15%;" src="{{produto.image.url}}">
+
+		<hr>
+
+		{{produto.nome}} <br>
+		{{produto.descricao}} <br>
+		{{produto.preco}} <br>
+		{{produto.timestamp}} <br>
+
+		{% include 'checkout/snippets/cart_home_update.html' with produto=produto cart=cart %}
+	{% else %}
+		
+		<h1> Parece que este produto não está disponível... Por agora! </h1> 
+		<br> 
+	
+	{% endif %}
+
+	<a href="{% url 'catalogo' %}"> Voltar ao Catálogo </a>
+
+{% endblock %}

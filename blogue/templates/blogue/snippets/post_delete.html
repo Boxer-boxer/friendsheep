@@ -1,0 +1,24 @@
+{% extends 'blogue/navbar.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet"  type="text/css" href="{% static 'blogue/base.css' %}">
+</head>
+<body>
+
+<div class="row offset-5 ">
+    <form method='post' action=''>
+    	{% csrf_token %}
+    	<div class="col col-12 mt-4">
+    	    <h1>Apagar?</h1>
+    	</div>
+    	<div class="col col-12">
+    	    <input class='btn blog-options-button btn-danger float-left' type="submit" name="delete" value="Yes">
+    	    <input class="btn blog-options-button float-right" type="submit" name="Cancelar" value="Cancelar"/>
+    	</div>
+    </form>
+</div>
+</body>
+{% endblock content %}

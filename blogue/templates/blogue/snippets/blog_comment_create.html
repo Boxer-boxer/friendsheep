@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet"  type="text/css" href="{% static 'blogue/base.css' %}">
+    {% load crispy_forms_tags %}
+</head>
+
+<body>
+{% if user.is_authenticated %}
+
+    <form method='post'>
+
+    	{% csrf_token %}
+    	<span class="mx-auto form-field"> {{form.comment|as_crispy_field}}</span>
+    	<input type="submit" name="submit" class="btn blog-options-button float-right" >
+
+    </form>
+
+{% endif %}
+</body>

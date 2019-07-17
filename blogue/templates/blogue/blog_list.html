@@ -1,0 +1,75 @@
+{% extends 'blogue/navbar.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+<!--
+F4F7F8
+E5C46E
+C77192
+EFA291
+667498
+ -->
+
+
+{%block content%}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet"  type="text/css" href="{% static 'blogue/base.css' %}">
+    <title>Fios do Tear - Homepage</title>
+
+</head>
+
+<body class="body-bg" style="background: #FFFFFF;">
+<div class="container">
+
+ {% if messages %}
+    {% for message in messages%}
+	    <span class='p-3 mb-2 bg-success messages text-white d-block'>{{message}}</span>
+	{% endfor %}
+{% endif %}
+
+{% if request.user.is_superuser %}
+    <div class="mt-4 ml-4 col-2 greeting-message">
+        <h3 class="greeting-message-text"> Olá, Diana! </h3>
+        <hr>
+        <button class="greeting-message-btn btn" ><a href="{% url 'createpost' %}"> Criar Poste </a> </button>
+        <hr>
+        <button class="greeting-message-btn btn" ><a href="http://friendsheep9292.pythonanywhere.com/admin"> Admin </a> </button>
+     </div>
+{% endif %}
+
+
+{% for p in post %}
+<div class="col col-lg-6 offset-lg-3 col-md-12">
+    <div class="blog-cards card p-2 my-4 mx-auto ">
+
+        <h1 class="card-title my-1 mx-auto text-center p-1">
+            <a href="{% url 'postdetail' p.slug %}"> {{p.title}} </a>
+        </h1>
+
+        <p class="card-body mb-auto"> {{p.body}} </p>
+        <div class="blog-button-detail border border-white rounded-circle mx-auto">
+            <h1 class=" text-center mx-auto">
+                <a href="{% url 'postdetail' p.slug %}"> + </a>
+            </h1>
+        </div>
+
+
+        <ul class="list-inline mt-4">
+        {% for tag in p.tags.all %}
+
+            <li class="card-link list-inline-item ml-3 mt-2">
+                <a href="{% url 'blogsearch' tag.tag_slug %}" class="hashtags"> #{{tag}} </a>
+            </li>
+
+        {% endfor %}
+        </ul>
+
+    </div>
+</div>
+{% endfor %}
+</div>
+</body>
+
+{% endblock %}

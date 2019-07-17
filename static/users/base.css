@@ -1,0 +1,82 @@
+body {
+    background-color: #F4F7F8;
+}
+
+.username {
+    color: #EFA291!important;;
+}
+
+.messages {
+    border-color: #E5C46E!important ;
+    border: 2px;
+    background-color: #F4F7F8!important;
+}
+
+.greeting-message {
+    position: relative!important;
+    color: #EFA291!important;
+    text-decoration: none!important;
+}
+
+.greeting-message-txt {
+    color: #EFA291;
+}
+
+.greeting-message-btn {
+      background-color: #EFA291!important;
+}
+
+.blog-cards {
+    border-color: #E5C46E!important;
+    background-color: #F4F7F8;
+}
+
+.blog-button-detail {
+    width: 4em;
+    position:relative;
+    bottom: -0.5em;
+    background-color: #EFA291!important;
+}
+
+.blog-button-detail a {
+    text-decoration: none!important;
+    color: #FFFFFF!important;
+}
+
+.hashtags {
+    text-decoration: none!important;
+    color: #EFA291!important;
+    padding: 2px;
+    text-align:center;
+}
+
+.blog-options-button {
+    color: #FFFFFF!important;
+    text-decoration: none!important;
+    background-color: #EFA291!important;
+    margin: 2px;
+
+}
+
+.comments {
+    color: #667498!important;
+    font-size: 12px;
+}
+
+h1 {
+    color: #667498!important;
+}
+
+h4 {
+    color: #667498!important;
+}
+
+h1 a {
+    color: #667498!important;
+    text-decoration: none!important;
+}
+
+
+p {
+    color: #667498!important;
+}

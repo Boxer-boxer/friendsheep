@@ -1,0 +1,30 @@
+{% extends 'blogue/navbar.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+	
+	{% if cart.products.exists %}
+	
+		{% for product in cart.products.all %}
+			
+			<p>{{product.nome}}</p>
+			<p>{{product.preco}}</p>
+			<p>{{product.timestamp}}</p>
+			<p></p>
+			<p></p>
+
+		{% endfor %}
+	
+	{% else %}
+	
+		<h1> Parece que ainda não tem produtos no seu carrinho!</h1>
+		<p><a href="{% url 'catalogo' %}"> Voltar ao Catálogo </a></p>
+	
+	{% endif %}
+
+<button> Checkout </button>
+
+{% endblock content %}
+	

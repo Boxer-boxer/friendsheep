@@ -1,0 +1,22 @@
+{% extends 'blogue/navbar.html' %}
+
+{% block content %}
+	
+	{% if produtos %}
+	
+		{% for produto in produtos %}
+			
+			<img style="height:5%; width:2.5%;" src="{{produto.image.url}}">
+			{{produto.nome}}
+			{{produto.preco}}
+			<a href="{% url 'detalheproduto' produto.pk %}"> + </a>
+
+		{% endfor %}
+	
+	{% else %}
+		
+		<h1> Parece que o nosso catálogo está vazio... Por agora!</h1>
+	
+	{% endif %}
+
+{% endblock %}

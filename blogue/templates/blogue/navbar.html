@@ -1,0 +1,64 @@
+{% extends 'blogue/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block navbar %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet"  type="text/css" href="{% static 'blogue/base.css' %}">
+
+</head>
+
+<body>
+
+<nav class='navbar sticky-top navbar-expand-lg navbar-light navbar-bg ' role="navigation">
+
+  <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle Navigation'>
+    <span class='navbar-toggler-icon'></span>
+  </button>
+
+    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+
+        <ul class='nav navbar-nav justify-content-between navbar-bg'>
+
+              <li class='nav-item mx-2 mt-2'>
+                <a class='text-black font-weight-light h5 navbar-bg' href="{% url 'homepage' %}" style="color: #ECE9EA;"> Home </a>
+              </li>
+
+              <li class='nav-item mx-2 mt-2 navbar-bg'>
+                <a class='text-black font-weight-light h5 navbar-bg' href="{% url 'catalogo' %}" style="color: #ECE9EA;"> Catálogo </a>
+              </li>
+        </ul>
+
+        <ul class='nav navbar-nav justify-content-between'>
+              {% if user.is_authenticated %}
+              <li class='nav-item mx-2 mt-2'>
+                <a class='text-black font-weight-light h5' href="{% url 'logout' %}" style="color: #ECE9EA;"> Logout </a>
+              </li>
+
+              {% else %}
+            <li class='nav-item mx-2 mt-2'>
+                <a class='text-black font-weight-light h5' href="{% url 'login' %}" style="color: #ECE9EA;"> Login </a>
+            </li>
+
+            <li class='nav-item mx-2 mt-2'>
+                <a class='text-black font-weight-light h5' href="{% url 'signup' %}" style="color: #ECE9EA;"> Fazer Conta </a>
+            </li>
+              {% endif %}
+        </ul>
+
+    </div>
+
+    <a class='navbar-brand text-black mx-auto' href='{% url "homepage" %}' style='font-family: raleway; text-decoration: none; color: #ECE9EA;'>
+        <span class='h3 font-weight-light'>Fios do Tear</span>
+    </a>
+
+</nav>
+</body>
+{% endblock navbar %}
+
+{% block content %}
+{% endblock content %}
+
